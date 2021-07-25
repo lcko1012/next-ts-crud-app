@@ -7,20 +7,42 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         query: {id}
     } = req
 
+    
     if(req.method === "PUT") {
         const data = req.body as EditPostFormData
+        
         try {
-            const editedPost = await prisma.post.update({
-                where: {
-                    id: Number(id)
-                },
-                data: {
-                    title: data.title,
-                    body: data.body
-                }
-            })
-            
-            return res.status(200).json({status: "Success", data: editedPost})
+            if(data){
+                const editedPost = await prisma.post.update({
+                    where: {
+                        id: Number(id)
+                    },
+                    data: {
+                        title: data.title,
+                        body: data.body
+                    }
+                })
+                
+                return res.status(200).json({status: "Success", data: editedPost})
+            }
+            else {
+                const editedPost = await prisma.post.findUnique({
+                    where: {id: Number(id)}
+                })
+                console.log(editedPost.pulished)
+
+                const publishedPost = await prisma.post.update({
+                    where: {
+                        id: Number(id)
+                    },
+                    data: {pulished: !editedPost.pulished}
+                   
+                })
+                console.log(publishedPost.pulished)
+
+                return res.status(200).json({status: "Success", data: publishedPost})
+            }
+           
         } catch (error) {
             return res.status(500).json({
                 status: "Error",
