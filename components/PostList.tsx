@@ -3,15 +3,18 @@ import {PostListItem} from "./PostListItem"
 import {Post} from "../types/post.type"
 
 type Props = {
-    posts: Post[]
+    posts: Post[] | []
 }
 
 const PostList: React.FC<Props> = ({posts}) => {
     return (
         <Fragment>
-            {posts.map(p => (
-                <PostListItem key={p.id} post={p}/>
-            ))}
+            <div className="flex flex-wrap">
+                {posts.map(p => (
+                    <PostListItem key={p.id} post={p}/>
+                ))}
+            </div>
+            
         </Fragment>
     )
 }

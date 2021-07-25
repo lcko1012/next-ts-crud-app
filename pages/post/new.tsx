@@ -1,4 +1,3 @@
-import router from "next/router";
 import { PostForm } from "../../components/PostForm";
 
 export type FormData = {
