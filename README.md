@@ -27,8 +27,12 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Packages
+I used a variety of packages to develop this project. Here's a list of them and where I got them from
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Nextjs
+  + [NextAuth](https://next-auth.js.org/) - Authentication for Next.js.
+- [Tailwindcss](https://tailwindcss.com/) - A utility first CSS framework
+- [Prisma](https://www.prisma.io/) -  Prisma is an open source next-generation ORM
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Status: Loading...
